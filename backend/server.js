@@ -43,7 +43,10 @@ app.get("*", (req, res) => {
   res.sendFile(path.resolve('public/index.html'));
 });
 
-// Start the server
-app.listen(1337, () => {
+if(process.env.NODE_ENV!=="production"){
+  app.listen(1337, () => {
   console.log(`Server is running at localhost:1337`);
 });
+}
+
+export default server;
